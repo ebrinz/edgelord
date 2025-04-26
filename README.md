@@ -1,0 +1,2 @@
+# edgelord
+squatting a domain
