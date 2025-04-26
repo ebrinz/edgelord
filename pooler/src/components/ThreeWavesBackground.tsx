@@ -286,8 +286,8 @@ export default function ThreeWavesBackground() {
         left: 0,
         width: "100%",
         height: "100%",
-        zIndex: 0,
-        pointerEvents: "none",
+        zIndex: -1, // ensure always behind UI
+        pointerEvents: "none", // never block clicks
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -298,17 +298,10 @@ export default function ThreeWavesBackground() {
       }}>
         {/* SVG fallback using primary color */}
         <Image
-          src="/wave-backdrop.svg"
-          alt="Wave Backdrop"
+          src="/laser-globe.svg"
+          alt="Laser Globe Background"
           fill
-          style={{
-            objectFit: "cover",
-            position: "absolute",
-            top: 0,
-            left: 0,
-            zIndex: 0,
-            pointerEvents: "none",
-          }}
+          style={{ objectFit: "cover", opacity: 0.8, pointerEvents: "none", zIndex: -1 }}
           priority
         />
       </div>

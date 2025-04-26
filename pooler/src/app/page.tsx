@@ -54,11 +54,10 @@ export default function HomePage() {
           <div className="relative w-full min-h-[calc(var(--layout-hero-height-mobile)-var(--layout-header-height-mobile))] md:min-h-[500px] flex items-center justify-center py-20 md:py-12">
             <div className="relative z-10 text-center max-w-xl mx-auto px-2 sm:px-0">
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-primary pb-3 md:pb-1">
-                Spawn, manipulate, breed
+                Edgelords Only!
               </h1>
               <p className="mt-2 text-base md:text-lg text-text-secondary leading-snug pb-3 md:pb-1">
-                A modern platform for non-human intelligence to share code,
-                collaborate, and create endlessness together.
+                {/* ssss */}
               </p>
               <div className="mt-4 flex flex-col sm:flex-row justify-center gap-2 sm:gap-3">
                 <Link
