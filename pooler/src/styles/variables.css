@@ -1,0 +1,308 @@
+/**
+ * Pooler Design System - Core Variables
+ * 
+ * This file defines the core design tokens and variables for the Pooler UI.
+ * Variables are organized by category for easier maintenance and updates.
+ */
+
+:root {
+    /*=============================================
+     * LAYOUT
+     *=============================================*/
+    
+    /* Header & Navigation Dimensions */
+    --layout-header-height-mobile: 6.25rem; /* 100px */
+    --layout-header-height-desktop: 5.25rem; /* 84px */
+    --layout-sidebar-width: 7rem; /* 112px */
+    --layout-mobile-nav-height: 3.75rem; /* 60px */
+    --layout-mobile-nav-top: var(--layout-header-height-mobile);
+    --layout-content-padding: 1.5rem;
+    --layout-hero-height-mobile: 40vh;
+
+    /*=============================================
+     * COLORS - PRIMITIVES
+     *=============================================*/
+    
+    /* Base Colors */
+    --color-black: #000000;
+    --color-white: #ffffff;
+    
+    /* Brand Colors */
+    --color-brand-primary: #07008d; /* Deep Hawaiian blue */
+    --color-brand-primary-hover: #1a5fa8;
+    --color-brand-accent: #4051b5; /* Indigo accent */
+    --color-brand-accent-hover: #5162c3;
+
+    /* Theme Colors - Dark Mode */
+    --color-theme-dark-surface: rgba(13, 15, 18, 0.95); /* Very dark with slight transparency */
+    --color-theme-dark-surface-hover: rgba(20, 22, 26, 0.95);
+    --color-theme-dark-surface-muted: rgba(16, 18, 21, 0.30);
+    --color-theme-dark-bg: #080a0c; /* Nearly black */
+    --color-theme-dark-bg-secondary: #0d0f13; /* Very dark gray */
+    --color-theme-dark-text: #e6ebef; /* Slightly blue-tinted white */
+    --color-theme-dark-text-secondary: #b8c7d0; /* Slightly blue-tinted light gray */
+    --color-theme-dark-text-muted: #8294a0; /* Slightly blue-tinted muted gray */
+    --color-theme-dark-border: #333b42; /* Dark subtle borders */
+    --color-theme-dark-border-hover: #414a52; /* Slightly brighter on hover */
+    --color-border-dark-strong: #23272e;
+    
+    /* Theme Colors - Light Mode */
+    --color-theme-light-brand-primary: #1a70c5; /* Lighter Hawaiian blue */
+    --color-theme-light-brand-primary-hover: #2884db;
+    --color-theme-light-brand-accent: #5c6bc0; /* Lighter indigo */
+    --color-theme-light-brand-accent-hover: #7986cb;
+    --color-theme-light-surface: rgba(244, 246, 249, 0.95); /* Light with slight transparency */
+    --color-theme-light-surface-hover: rgba(234, 238, 243, 0.95);
+    --color-theme-light-surface-muted: rgba(232, 237, 243, 0.30);
+    --color-theme-light-bg: #f0f2f5; /* Light background with subtle blue tint */
+    --color-theme-light-bg-secondary: #e4e7ec;
+    --color-theme-light-text: #1e2936; /* Dark blue-gray text */
+    --color-theme-light-text-secondary: #3e4a59; /* Slightly lighter blue-gray */
+    --color-theme-light-text-muted: #6b7684; /* Muted blue-gray */
+    --color-theme-light-border: #d0d6dd; /* Light blue-gray borders */
+    --color-theme-light-border-hover: #bbc3cc; /* Slightly darker on hover */
+    --color-border-light-strong: #b0b8c1;
+    
+    /* Highlight for selected file in filetree */
+    --color-filetree-selected-bg-light: #e3f0ff;
+    --color-filetree-selected-bg-dark: #18314f;
+    --color-filetree-selected-line-light: #1976d2;
+    --color-filetree-selected-line-dark: #90caf9;
+    
+    /*=============================================
+     * COLORS - SEMANTIC ALIASES 
+     * (Default to dark theme)
+     *=============================================*/
+    
+    /* Brand Colors */
+    --color-primary: var(--color-brand-primary);
+    --color-primary-hover: var(--color-brand-primary-hover);
+    --color-secondary: var(--color-brand-accent);
+    --color-secondary-hover: var(--color-brand-accent-hover);
+    --color-accent: var(--color-brand-primary);
+    --color-accent-hover: var(--color-brand-primary-hover);
+    
+    /* Interface Colors */
+    --color-surface: var(--color-theme-dark-surface);
+    --color-surface-hover: var(--color-theme-dark-surface-hover);
+    --color-surface-muted: var(--color-theme-dark-surface-muted);
+    --color-background: var(--color-theme-dark-bg);
+    --color-background-secondary: var(--color-theme-dark-bg-secondary);
+    
+    /* Text Colors */
+    --color-text: var(--color-theme-dark-text);
+    --color-text-secondary: var(--color-theme-dark-text-secondary);
+    --color-text-muted: var(--color-theme-dark-text-muted);
+    
+    /* Border Colors */
+    --color-border: var(--color-theme-dark-border);
+    --color-border-hover: var(--color-theme-dark-border-hover);
+
+    /* PrismJS Syntax Highlighting Colors */
+    --prism-bg: var(--color-theme-dark-surface, #1a1b26);
+    --prism-fg: var(--color-theme-dark-text, #e6ebef);
+    --prism-selection: #2d3146;
+    --prism-comment: #6a9955;
+    --prism-keyword: #569cd6;
+    --prism-string: #ce9178;
+    --prism-function: #dcdcaa;
+    --prism-variable: #9cdcfe;
+    --prism-number: #b5cea8;
+    --prism-operator: #d4d4d4;
+    --prism-class: #4ec9b0;
+    --prism-constant: #d16969;
+    --prism-tag: #569cd6;
+    --prism-attr-name: #9cdcfe;
+    --prism-attr-value: #ce9178;
+
+    /* Diff Highlighting (defaults for dark mode) */
+    --diff-add-bg: #16391a;
+    --diff-add-text: #54d66a;
+    --diff-del-bg: #3a181b;
+    --diff-del-text: #ff7b7b;
+    --diff-unchanged-bg: var(--prism-bg, #1a1b26);
+    --diff-unchanged-text: var(--prism-fg, #e6ebef);
+
+    /*=============================================
+     * TYPOGRAPHY
+     *=============================================*/
+    
+    /* Font Families */
+    --font-sans: "Hack", monospace;
+    --font-mono: "Hack", monospace;
+    
+    /* Font Sizes */
+    --text-xs: 0.75rem;    /* 12px */
+    --text-sm: 0.875rem;   /* 14px */
+    --text-base: 1rem;     /* 16px */
+    --text-lg: 1.125rem;   /* 18px */
+    --text-xl: 1.25rem;    /* 20px */
+    --text-2xl: 1.5rem;    /* 24px */
+    --text-3xl: 1.875rem;  /* 30px */
+    
+    /* Line Heights */
+    --leading-none: 1;
+    --leading-tight: 1.25;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+
+    /*=============================================
+     * SPACING
+     *=============================================*/
+    
+    --space-1: 0.25rem;   /* 4px */
+    --space-2: 0.5rem;    /* 8px */
+    --space-3: 0.75rem;   /* 12px */
+    --space-4: 1rem;      /* 16px */
+    --space-6: 1.5rem;    /* 24px */
+    --space-8: 2rem;      /* 32px */
+    --space-12: 3rem;     /* 48px */
+    --space-16: 4rem;     /* 64px */
+
+    /*=============================================
+     * EFFECTS
+     *=============================================*/
+    
+    /* Shadow Base Values */
+    --shadow-opacity-soft: 0.07;
+    --shadow-opacity-medium: 0.1;
+    --shadow-opacity-strong: 0.12;
+    --shadow-glow-opacity: 0.25;
+    
+    /* Shadows - Default (Dark Theme) */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, var(--shadow-opacity-soft));
+    --shadow-md:
+        0 4px 6px -1px rgba(0, 0, 0, var(--shadow-opacity-medium)), 
+        0 2px 4px -1px rgba(12, 75, 142, 0.05);
+    --shadow-lg:
+        0 8px 12px -3px rgba(0, 0, 0, var(--shadow-opacity-strong)), 
+        0 4px 6px -2px rgba(12, 75, 142, 0.08);
+    --text-glow: 0 0 2px rgba(12, 75, 142, var(--shadow-glow-opacity));
+    
+    /* Animations & Transitions */
+    --transition-fast: 120ms;
+    --transition-normal: 250ms;
+    --transition-slow: 450ms;
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+}
+
+/*=============================================
+ * COMPONENT-SPECIFIC STYLES
+ *=============================================*/
+
+/* Cyberpunk button style */
+.cyber-button {
+    position: relative;
+    transition: all var(--transition-fast) var(--ease-in-out);
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 0 2px var(--color-primary);
+}
+
+.cyber-button:hover {
+    border-color: var(--color-primary-hover);
+    box-shadow: 0 0 5px var(--color-primary);
+    transform: translateY(-1px);
+}
+
+/*=============================================
+ * THEME VARIANTS
+ *=============================================*/
+
+/* Default theme for all system modes */
+@media (prefers-color-scheme: dark), (prefers-color-scheme: light) {
+    :root {
+        /* Maintain default theme regardless of system preference */
+    }
+}
+
+/* Light theme class for toggling */
+.light-mode {
+    /* Brand Colors */
+    --color-primary: var(--color-theme-light-brand-primary);
+    --color-primary-hover: var(--color-theme-light-brand-primary-hover);
+    --color-secondary: var(--color-theme-light-brand-accent);
+    --color-secondary-hover: var(--color-theme-light-brand-accent-hover);
+    --color-accent: var(--color-theme-light-brand-primary);
+    --color-accent-hover: var(--color-theme-light-brand-primary-hover);
+    
+    /* Interface Colors */
+    --color-surface: var(--color-theme-light-surface);
+    --color-surface-hover: var(--color-theme-light-surface-hover);
+    --color-surface-muted: var(--color-theme-light-surface-muted);
+    --color-background: var(--color-theme-light-bg);
+    --color-background-secondary: var(--color-theme-light-bg-secondary);
+    
+    /* Text Colors */
+    --color-text: var(--color-theme-light-text);
+    --color-text-secondary: var(--color-theme-light-text-secondary);
+    --color-text-muted: var(--color-theme-light-text-muted);
+    
+    /* Border Colors */
+    --color-border: var(--color-theme-light-border);
+    --color-border-hover: var(--color-theme-light-border-hover);
+    
+    /* Shadows for light mode */
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md:
+        0 4px 6px -1px rgba(0, 0, 0, 0.08), 
+        0 2px 4px -1px rgba(26, 112, 197, 0.04);
+    --shadow-lg:
+        0 8px 12px -3px rgba(0, 0, 0, 0.09), 
+        0 4px 6px -2px rgba(26, 112, 197, 0.05);
+    --text-glow: 0 0 1px rgba(26, 112, 197, 0.15);
+    
+    /* Diff Highlighting for light mode */
+    --diff-add-bg: #e6ffed;
+    --diff-add-text: #22863a;
+    --diff-del-bg: #ffeef0;
+    --diff-del-text: #b31d28;
+    --diff-unchanged-bg: var(--prism-bg, #f8fafd);
+    --diff-unchanged-text: var(--prism-fg, #1e2936);
+}
+
+/* Dark theme class for toggling */
+.dark-mode {
+    /* Brand Colors */
+    --color-primary: var(--color-brand-primary);
+    --color-primary-hover: var(--color-brand-primary-hover);
+    --color-secondary: var(--color-brand-accent);
+    --color-secondary-hover: var(--color-brand-accent-hover);
+    --color-accent: var(--color-brand-primary);
+    --color-accent-hover: var(--color-brand-primary-hover);
+    
+    /* Interface Colors */
+    --color-surface: var(--color-theme-dark-surface);
+    --color-surface-hover: var(--color-theme-dark-surface-hover);
+    --color-surface-muted: var(--color-theme-dark-surface-muted);
+    --color-background: var(--color-theme-dark-bg);
+    --color-background-secondary: var(--color-theme-dark-bg-secondary);
+    
+    /* Text Colors */
+    --color-text: var(--color-theme-dark-text);
+    --color-text-secondary: var(--color-theme-dark-text-secondary);
+    --color-text-muted: var(--color-theme-dark-text-muted);
+    
+    /* Border Colors */
+    --color-border: var(--color-theme-dark-border);
+    --color-border-hover: var(--color-theme-dark-border-hover);
+    
+    /* Shadows for dark mode */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.07);
+    --shadow-md:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+        0 2px 4px -1px rgba(12, 75, 142, 0.05);
+    --shadow-lg:
+        0 8px 12px -3px rgba(0, 0, 0, 0.12), 
+        0 4px 6px -2px rgba(12, 75, 142, 0.08);
+    --text-glow: 0 0 2px rgba(12, 75, 142, 0.25);
+    
+    /* Diff Highlighting for dark mode */
+    --diff-add-bg: #16391a;
+    --diff-add-text: #54d66a;
+    --diff-del-bg: #3a181b;
+    --diff-del-text: #ff7b7b;
+    --diff-unchanged-bg: var(--prism-bg, #1a1b26);
+    --diff-unchanged-text: var(--prism-fg, #e6ebef);
+}
