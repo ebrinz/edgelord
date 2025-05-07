@@ -39,7 +39,7 @@ export default function Header({}: HeaderProps) {
         <div className="pl-6">
           <Link href="/">
             {/* Custom SVG Logo: Technolabe, even wider display window */}
-            <img src="/bst.png" alt="Brand Logo" className="h-[var(--layout-header-height-mobile)] md:h-[var(--layout-header-height-desktop)] w-auto" />
+            <img src="/bst.png" alt="Brand Logo" className="h-[var(--layout-header-height-mobile)] md:h-[var(--layout-header-height-desktop)] w-auto logo-polarize-light" />
           </Link>
         </div>
         <div className="flex items-center gap-4">
@@ -123,10 +123,10 @@ export default function Header({}: HeaderProps) {
                   <path d="M 3 9h 6" />
                   <path d="M 9 3v 6" />
                 </svg>
-                <span>Config</span>
+                <span>Profile</span>
               </Link>
               <Link
-                href="/repositories"
+                href="/quiz"
                 className="flex items-center gap-2 p-2 rounded transition-colors menu-hover"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -143,7 +143,7 @@ export default function Header({}: HeaderProps) {
                   <path d="M 3 3h 18v 18h -18z" />
                   <path d="M 7 7h 10v 10h -10z" />
                 </svg>
-                <span>Repos</span>
+                <span>Quiz</span>
               </Link>
             </nav>
             <button

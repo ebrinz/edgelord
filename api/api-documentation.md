@@ -58,6 +58,30 @@ To perform this operation, you must be authenticated by means of one of the foll
 bearerAuth
 </aside>
 
+## post__api_refresh
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X POST http://localhost:3001/api/refresh \
+  -H 'Authorization: Bearer {access-token}'
+
+```
+
+`POST /api/refresh`
+
+<h3 id="post__api_refresh-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Default Response|None|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+bearerAuth
+</aside>
+
 <h1 id="next-js-api-with-fastify-auth">Auth</h1>
 
 Authentication endpoints

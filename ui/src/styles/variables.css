@@ -263,6 +263,12 @@
 }
 
 /* Dark theme class for toggling */
+
+/* Polarize logo to white in light mode */
+.light-mode .logo-polarize-light {
+  filter: brightness(0);
+}
+
 .dark-mode {
     /* Brand Colors */
     --color-primary: var(--color-brand-primary);

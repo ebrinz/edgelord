@@ -14,6 +14,19 @@ export default function LoginPage() {
   const supabase = createClientComponentClient();
   const formRef = useRef<HTMLDivElement>(null);
 
+  // Redirect to / when clicking outside the login form
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (formRef.current && !formRef.current.contains(event.target as Node)) {
+        router.push('/'); // Always redirect to landing page
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [router]);
+
   useEffect(() => {
     // Check if user is already logged in
     const checkSession = async () => {
@@ -31,18 +44,6 @@ export default function LoginPage() {
     };
 
     checkSession();
-
-    // Handle click outside
-    const handleClickOutside = (event: MouseEvent) => {
-      if (formRef.current && !formRef.current.contains(event.target as Node)) {
-        router.push("/dashboard");
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
   }, [router, supabase.auth]);
 
   const handleLogin = async (e: React.FormEvent) => {
