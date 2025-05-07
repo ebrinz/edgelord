@@ -24,7 +24,7 @@ export default function SignupPage() {
         } = await supabase.auth.getSession();
         if (session) {
           // If session exists, redirect to repositories
-          router.push("/dashboard/overview");
+          router.push("/overview");
         }
       } catch (error) {
         console.error("Error checking session:", error);
@@ -36,7 +36,7 @@ export default function SignupPage() {
     // Handle click outside
     const handleClickOutside = (event: MouseEvent) => {
       if (formRef.current && !formRef.current.contains(event.target as Node)) {
-        router.push("/dashboard/overview");
+        router.push("/overview");
       }
     };
 

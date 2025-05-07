@@ -36,7 +36,7 @@ export default function LoginPage() {
         } = await supabase.auth.getSession();
         if (session) {
           // If session exists, redirect to dashboard
-          router.push("/dashboard/overview");
+          router.push("/overview");
         }
       } catch (error) {
         console.error("Error checking session:", error);
@@ -61,7 +61,7 @@ export default function LoginPage() {
         throw error;
       }
 
-      router.push("/dashboard/overview");
+      router.push("/overview");
       // Keep loading state active until navigation completes
       // Loading state will be unmounted when component is unmounted during navigation
     } catch (error: Error | unknown) {
