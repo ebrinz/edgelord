@@ -1,6 +1,7 @@
 import React from "react";
 import type { User } from "@supabase/supabase-js";
 import { useTheme } from "@/components/ThemeProvider";
+import Image from "next/image";
 
 interface ProfileCardProps {
   user: User;
@@ -54,10 +55,12 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ user }) => {
       <h2 style={{ margin: 0, fontSize: 28, fontWeight: 600 }}>{user.user_metadata?.full_name || user.email}</h2>
       <p style={{ color: subColor, margin: "10px 0 0 0", fontSize: 18 }}>{user.email}</p>
       {user.user_metadata?.avatar_url && (
-        <img
-          src={user.user_metadata.avatar_url}
-          alt="Avatar"
-          style={{ width: 72, height: 72, borderRadius: "50%", marginTop: 20, border: isDark ? "2px solid #333" : "2px solid #e5e7eb" }}
+        <Image
+          src={user.user_metadata?.avatar_url || "/placeholder-avatar.png"}
+          alt="Profile Avatar"
+          width={96}
+          height={96}
+          className="rounded-full w-24 h-24 object-cover border border-border shadow-lg mb-4"
         />
       )}
     </div>

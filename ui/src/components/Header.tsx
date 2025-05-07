@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import ThemeToggleWrapper from "@/components/ThemeToggleWrapper";
 import SignOutModal from "@/components/SignOutModal";
 import { useState, useEffect } from "react";
@@ -39,7 +40,7 @@ export default function Header({}: HeaderProps) {
         <div className="pl-6">
           <Link href="/overview">
             {/* Custom SVG Logo: Technolabe, even wider display window */}
-            <img src="/bst.png" alt="Brand Logo" className="h-[var(--layout-header-height-mobile)] md:h-[var(--layout-header-height-desktop)] w-auto logo-polarize-light" />
+            <Image src="/bst.png" alt="Brand Logo" width={180} height={48} className="h-[var(--layout-header-height-mobile)] md:h-[var(--layout-header-height-desktop)] w-auto logo-polarize-light" priority />
           </Link>
         </div>
         <div className="flex items-center gap-4">
