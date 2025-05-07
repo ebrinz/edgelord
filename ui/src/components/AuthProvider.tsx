@@ -9,19 +9,17 @@ export default function AuthProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [user, setUser] = useState<User | null>(null);
+  // const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     const supabase = createClientComponentClient();
 
     // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-    });
+    supabase.auth.getSession();
 
     // Listen for auth state changes (login, logout, refresh)
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
+      // No-op
     });
 
     return () => {

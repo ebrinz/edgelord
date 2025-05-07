@@ -37,7 +37,7 @@ export default function Header({}: HeaderProps) {
     <header className="fixed top-0 left-0 w-full bg-surface z-50 border-b border-[var(--color-border-light-strong)] dark:border-[var(--color-border-dark-strong)] transition-[background-color] duration-[var(--transition-normal)]">
       <div className="flex justify-between items-center px-4 py-2 h-[var(--layout-header-height-mobile)]">
         <div className="pl-6">
-          <Link href="/">
+          <Link href="/overview">
             {/* Custom SVG Logo: Technolabe, even wider display window */}
             <img src="/bst.png" alt="Brand Logo" className="h-[var(--layout-header-height-mobile)] md:h-[var(--layout-header-height-desktop)] w-auto logo-polarize-light" />
           </Link>
@@ -104,6 +104,26 @@ export default function Header({}: HeaderProps) {
             </div>
             {/* Nav Items */}
             <nav className="flex flex-col gap-2 flex-1">
+              <Link
+                href="/overview"
+                className="flex items-center gap-2 p-2 rounded transition-colors menu-hover"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M8 16h8M8 12h8M8 8h8" />
+                </svg>
+                <span>Overview</span>
+              </Link>
               <Link
                 href="/profile"
                 className="flex items-center gap-2 p-2 rounded transition-colors menu-hover"

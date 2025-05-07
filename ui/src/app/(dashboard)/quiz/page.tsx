@@ -32,7 +32,7 @@ const QuizPage: React.FC = () => {
     >
       <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 12 }}>Quiz Section (Coming Soon)</h1>
       <p style={{ fontSize: 18, color: isDark ? "#a1a1aa" : "#666", maxWidth: 520, textAlign: "center" }}>
-        This is where your interactive quizzes will appear. We'll soon add logic, API endpoints, and database updates for a dynamic quiz experience. Stay tuned!
+        This is where your interactive quizzes will appear. We&apos;ll soon add logic, API endpoints, and database updates for a dynamic quiz experience. Stay tuned!
       </p>
     </section>
   );

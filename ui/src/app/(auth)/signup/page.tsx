@@ -24,7 +24,7 @@ export default function SignupPage() {
         } = await supabase.auth.getSession();
         if (session) {
           // If session exists, redirect to repositories
-          router.push("/dashboard");
+          router.push("/dashboard/overview");
         }
       } catch (error) {
         console.error("Error checking session:", error);
@@ -36,7 +36,7 @@ export default function SignupPage() {
     // Handle click outside
     const handleClickOutside = (event: MouseEvent) => {
       if (formRef.current && !formRef.current.contains(event.target as Node)) {
-        router.push("/dashboard");
+        router.push("/dashboard/overview");
       }
     };
 
@@ -68,10 +68,20 @@ export default function SignupPage() {
       }
 
       // Insert new email
-      const { error } = await supabase.from("waiting_list").insert([{ email }]);
+      const { error: insertError } = await supabase.from("waiting_list").insert([{ email }]);
+      if (insertError) {
+        throw insertError;
+      }
 
-      if (error) {
-        throw error;
+      // Send Supabase magic link with redirect to /dashboard/overview
+      const { error: magicLinkError } = await supabase.auth.signInWithOtp({
+        email,
+        options: {
+          emailRedirectTo: `${window.location.origin}/dashboard/overview`,
+        },
+      });
+      if (magicLinkError) {
+        throw magicLinkError;
       }
 
       // Analytics: log to console, or send to analytics service here
@@ -79,7 +89,7 @@ export default function SignupPage() {
       // (Replace with your analytics platform as needed)
       console.log("Waiting list signup:", email);
 
-      setSuccess("You have been added to the waiting list!");
+      setSuccess("Check your email for a magic link to sign in!");
       setEmail("");
     } catch (error: Error | unknown) {
       const errorMessage =
