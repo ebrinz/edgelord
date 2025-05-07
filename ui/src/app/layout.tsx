@@ -8,8 +8,8 @@ import AuthProvider from "@/components/AuthProvider";
 
 
 export const metadata: Metadata = {
-  title: "Technolabe",
-  description: "A modern platform for developers to share code and collaborate",
+  title: "Blood Sweat and Tears",
+  description: "Blood Sweat and Tears",
   icons: {
     icon: "/favicon.svg",
   },

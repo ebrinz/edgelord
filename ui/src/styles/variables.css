@@ -28,10 +28,10 @@
     --color-white: #ffffff;
     
     /* Brand Colors */
-    --color-brand-primary: #07008d; /* Deep Hawaiian blue */
-    --color-brand-primary-hover: #1a5fa8;
-    --color-brand-accent: #4051b5; /* Indigo accent */
-    --color-brand-accent-hover: #5162c3;
+    --color-brand-primary: #7d011a; /* Deep Hawaiian blue */
+    --color-brand-primary-hover: #570515;
+    --color-brand-accent: #db1038; /* Indigo accent */
+    --color-brand-accent-hover: #a80022;
 
     /* Theme Colors - Dark Mode */
     --color-theme-dark-surface: rgba(13, 15, 18, 0.95); /* Very dark with slight transparency */

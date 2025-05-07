@@ -39,43 +39,7 @@ export default function Header({}: HeaderProps) {
         <div className="pl-6">
           <Link href="/">
             {/* Custom SVG Logo: Technolabe, even wider display window */}
-            <svg
-              width="800"
-              height="140"
-              viewBox="0 0 800 140"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-32 w-[800px]"
-            >
-              <defs>
-                <linearGradient id="techno-gradient" x1="0" y1="0" x2="800" y2="140" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="var(--color-primary)" />
-                  <stop offset="1" stopColor="#c0c0c0" />
-                </linearGradient>
-                <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
-                  <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                  <feMerge>
-                    <feMergeNode in="coloredBlur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
-              </defs>
-              <text
-                x="50%"
-                y="65%"
-                textAnchor="middle"
-                dominantBaseline="middle"
-                fontFamily="'Orbitron', 'Share Tech Mono', 'monospace'"
-                fontWeight="bold"
-                fontSize="90"
-                fill="url(#techno-gradient)"
-                filter="url(#glow)"
-                letterSpacing="0.22em"
-                style={{ textShadow: '0 0 4px var(--color-primary)' }}
-              >
-                TECHNOLABE
-              </text>
-            </svg>
+            <img src="/bst.png" alt="Brand Logo" className="h-[var(--layout-header-height-mobile)] md:h-[var(--layout-header-height-desktop)] w-auto" />
           </Link>
         </div>
         <div className="flex items-center gap-4">

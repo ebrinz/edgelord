@@ -47,14 +47,20 @@ export default function HomePage() {
   }
   return (
     <div className="relative min-h-screen w-full bg-bg text-text">
-      <ThreeWavesBackground />
+      {/* Background image replacing ThreeWavesBackground */}
+      <img
+        src="/bst_vid.jpeg"
+        alt="Background"
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        style={{ pointerEvents: 'none' }}
+      />
       <div className="flex flex-col min-h-screen h-full overflow-y-auto justify-between relative z-10">
         <div className="w-full px-2 sm:px-0">
           {/* Hero Section with Waves */}
           <div className="relative w-full min-h-[calc(var(--layout-hero-height-mobile)-var(--layout-header-height-mobile))] md:min-h-[500px] flex items-center justify-center py-20 md:py-12">
             <div className="relative z-10 text-center max-w-xl mx-auto px-2 sm:px-0">
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-primary pb-3 md:pb-1">
-                Edgelords Only!
+                {/* Edgelords Only! */}
               </h1>
               <p className="mt-2 text-base md:text-lg text-text-secondary leading-snug pb-3 md:pb-1">
                 {/* ssss */}
