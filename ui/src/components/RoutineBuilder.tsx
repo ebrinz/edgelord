@@ -1,6 +1,15 @@
 import React, { useState } from "react";
-import ExerciseFilterForm from "./ExerciseFilterForm";
 import exerciseCatalog from "@/mockData/exercise_catalog.json";
+
+interface Exercise {
+  exercise_id: number;
+  name: string;
+  muscle_group: string;
+  position: string;
+  typical_springs?: string;
+  typical_duration?: string;
+  description?: string;
+}
 
 interface RoutineExercise {
   exercise_id: number;
@@ -13,8 +22,9 @@ interface RoutineExercise {
 }
 
 const RoutineBuilder: React.FC = () => {
-  const [selectedExerciseId, setSelectedExerciseId] = useState<number | null>(null);
+  const [exercises, setExercises] = useState<Exercise[]>([]);
   const [routine, setRoutine] = useState<RoutineExercise[]>([]);
+  const [selectedExerciseId, setSelectedExerciseId] = useState<number | null>(null);
   const [form, setForm] = useState({
     springs: "",
     duration: "",
@@ -24,13 +34,10 @@ const RoutineBuilder: React.FC = () => {
   });
 
   // Get unique exercises, durations, springs
-  const exercises = exerciseCatalog;
-  const durations = Array.from(new Set(exercises.map((ex: any) => ex.typical_duration).filter(Boolean)));
-  const springsList = Array.from(new Set(exercises.map((ex: any) => ex.typical_springs).filter(Boolean)));
+  const durations = Array.from(new Set(exerciseCatalog.map((ex: Exercise) => ex.typical_duration).filter(Boolean)));
+  const springsList = Array.from(new Set(exerciseCatalog.map((ex: Exercise) => ex.typical_springs).filter(Boolean)));
 
-  const selectedExercise = selectedExerciseId != null ? exercises.find((ex: any) => ex.exercise_id === selectedExerciseId) : null;
-
-
+  const selectedExercise = selectedExerciseId != null ? exercises.find((ex: Exercise) => ex.exercise_id === selectedExerciseId) : null;
 
   // Add selected exercise to routine
   const handleAddToRoutine = () => {
@@ -72,7 +79,7 @@ const RoutineBuilder: React.FC = () => {
               onChange={e => {
                 const val = e.target.value ? parseInt(e.target.value) : null;
                 setSelectedExerciseId(val);
-                const ex = exercises.find((ex: any) => ex.exercise_id === val);
+                const ex = exercises.find((ex: Exercise) => ex.exercise_id === val);
                 setForm(f => ({
                   ...f,
                   springs: ex?.typical_springs || '',
@@ -84,7 +91,7 @@ const RoutineBuilder: React.FC = () => {
               }}
             >
               <option value="">Select Exercise</option>
-              {exercises.map((ex: any) => (
+              {exercises.map((ex: Exercise) => (
                 <option key={ex.exercise_id} value={ex.exercise_id}>{ex.name}</option>
               ))}
             </select>

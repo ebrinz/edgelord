@@ -1,21 +1,3 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <title>Technolabe UFO</title>
-  <g>
-    <!-- UFO Dome -->
-    <ellipse cx="32" cy="28" rx="14" ry="7" fill="#b3e0ff" stroke="#888" stroke-width="1.5"/>
-    <!-- UFO Body -->
-    <ellipse cx="32" cy="36" rx="22" ry="10" fill="url(#bodyGradient)" stroke="#888" stroke-width="2"/>
-    <defs>
-      <linearGradient id="bodyGradient" x1="10" y1="36" x2="54" y2="36" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#a259ff"/>
-        <stop offset="1" stop-color="#6c2eb7"/>
-      </linearGradient>
-    </defs>
-    <!-- UFO Lights -->
-    <circle cx="18" cy="36" r="2" fill="#fff176" stroke="#fbc02d" stroke-width="0.7"/>
-    <circle cx="32" cy="44" r="2" fill="#fff176" stroke="#fbc02d" stroke-width="0.7"/>
-    <circle cx="46" cy="36" r="2" fill="#fff176" stroke="#fbc02d" stroke-width="0.7"/>
-    <!-- Technolabe Text -->
-    <text x="32" y="60" text-anchor="middle" font-family="'Orbitron', 'Share Tech Mono', 'monospace'" font-size="11" font-weight="bold" fill="#a259ff">TECHNOLABE</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" font-size="48">🧘‍♀️</text>
 </svg>

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Blood Sweat and Tears",
   description: "Blood Sweat and Tears",
   icons: {
-    icon: "/favicon.svg",
+    icon: "/favicon.png",
   },
 };
 
