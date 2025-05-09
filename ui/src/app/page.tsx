@@ -22,7 +22,7 @@ export default function HomePage() {
         } = await supabase.auth.getSession();
         if (session) {
           // If session exists, redirect to dashboard
-          router.push("/dashboard/overview");
+          router.push("/dashboard/quiz");
         } else {
           // No session, show the landing page
           setIsLoading(false);
