@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useTheme } from "@/components/ThemeProvider";
+// import { useTheme } from "@/components/ThemeProvider";
 import RoutineBuilderPanel from "@/components/RoutineBuilderPanel";
 import QuizHistoryPanel from "@/components/QuizHistoryPanel";
 import ExerciseReferencePanel from "@/components/ExerciseReferencePanel";
