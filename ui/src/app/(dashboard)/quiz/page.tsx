@@ -8,9 +8,6 @@ import ExerciseReferencePanel from "@/components/ExerciseReferencePanel";
 const QuizPage: React.FC = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
-  const bg = isDark ? "#18181b" : "#fff";
-  const border = isDark ? "1.5px solid #333" : "1.5px solid #e5e7eb";
-  const color = isDark ? "#f3f3f3" : "#18181b";
 
   return (
     <>

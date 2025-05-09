@@ -37,7 +37,7 @@ const RoutineBuilder: React.FC = () => {
   const durations = Array.from(new Set(exerciseCatalog.map((ex: Exercise) => ex.typical_duration).filter(Boolean)));
   const springsList = Array.from(new Set(exerciseCatalog.map((ex: Exercise) => ex.typical_springs).filter(Boolean)));
 
-  const selectedExercise = selectedExerciseId != null ? exercises.find((ex: Exercise) => ex.exercise_id === selectedExerciseId) : null;
+  const selectedExercise = selectedExerciseId != null ? exerciseCatalog.find((ex: Exercise) => ex.exercise_id === selectedExerciseId) : null;
 
   // Add selected exercise to routine
   const handleAddToRoutine = () => {
@@ -74,7 +74,7 @@ const RoutineBuilder: React.FC = () => {
           <label className="flex flex-col text-sm min-w-[180px] flex-1 w-full">
             Exercise
             <select
-              className="mt-1 px-2 py-1 border rounded bg-white dark:bg-zinc-900 text-black dark:text-white border-gray-300 dark:border-zinc-700 focus:outline-none focus:ring-2 focus:ring-primary transition-colors w-full"
+              className="mt-1 px-2 py-1 border rounded bg-surface text-primary border-primary focus:outline-none focus:ring-2 focus:ring-primary transition-colors w-full"
               value={selectedExerciseId ?? ''}
               onChange={e => {
                 const val = e.target.value ? parseInt(e.target.value) : null;
@@ -91,7 +91,7 @@ const RoutineBuilder: React.FC = () => {
               }}
             >
               <option value="">Select Exercise</option>
-              {exercises.map((ex: Exercise) => (
+              {exerciseCatalog.map((ex: Exercise) => (
                 <option key={ex.exercise_id} value={ex.exercise_id}>{ex.name}</option>
               ))}
             </select>
@@ -99,7 +99,7 @@ const RoutineBuilder: React.FC = () => {
           <label className="flex flex-col text-sm min-w-[120px] flex-1 w-full">
             Springs
             <select
-              className="mt-1 px-2 py-1 border rounded bg-white dark:bg-zinc-900 text-black dark:text-white border-gray-300 dark:border-zinc-700 focus:outline-none focus:ring-2 focus:ring-primary transition-colors w-full"
+              className="mt-1 px-2 py-1 border rounded bg-surface text-primary border-primary focus:outline-none focus:ring-2 focus:ring-primary transition-colors w-full"
               value={form.springs}
               onChange={e => setForm(f => ({ ...f, springs: e.target.value }))}
             >
@@ -112,7 +112,7 @@ const RoutineBuilder: React.FC = () => {
           <label className="flex flex-col text-sm min-w-[100px] flex-1 w-full">
             Duration
             <select
-              className="mt-1 px-2 py-1 border rounded bg-white dark:bg-zinc-900 text-black dark:text-white border-gray-300 dark:border-zinc-700 focus:outline-none focus:ring-2 focus:ring-primary transition-colors w-full"
+              className="mt-1 px-2 py-1 border rounded bg-surface text-primary border-primary focus:outline-none focus:ring-2 focus:ring-primary transition-colors w-full"
               value={form.duration}
               onChange={e => setForm(f => ({ ...f, duration: e.target.value }))}
             >
@@ -125,7 +125,7 @@ const RoutineBuilder: React.FC = () => {
           <label className="flex flex-col text-sm min-w-[90px] flex-1 w-full">
             Side
             <select
-              className="mt-1 px-2 py-1 border rounded bg-white dark:bg-zinc-900 text-black dark:text-white border-gray-300 dark:border-zinc-700 focus:outline-none focus:ring-2 focus:ring-primary transition-colors w-full"
+              className="mt-1 px-2 py-1 border rounded bg-surface text-primary border-primary focus:outline-none focus:ring-2 focus:ring-primary transition-colors w-full"
               value={form.side}
               onChange={e => setForm(f => ({ ...f, side: e.target.value }))}
             >
@@ -138,7 +138,7 @@ const RoutineBuilder: React.FC = () => {
           <label className="flex flex-col text-sm min-w-[120px] flex-1 w-full">
             Modifiers
             <input
-              className="mt-1 px-2 py-1 border rounded bg-white dark:bg-zinc-900 text-black dark:text-white border-gray-300 dark:border-zinc-700 focus:outline-none focus:ring-2 focus:ring-primary transition-colors w-full"
+              className="mt-1 px-2 py-1 border rounded bg-surface text-black dark:text-white border-primary dark:border-primary focus:outline-none focus:ring-2 focus:ring-primary transition-colors w-full"
               value={form.modifiers}
               onChange={e => setForm(f => ({ ...f, modifiers: e.target.value }))}
               placeholder="e.g. +pulse :30"
@@ -147,14 +147,14 @@ const RoutineBuilder: React.FC = () => {
           <label className="flex flex-col text-sm min-w-[140px] flex-1 w-full">
             Notes
             <input
-              className="mt-1 px-2 py-1 border rounded bg-white dark:bg-zinc-900 text-black dark:text-white border-gray-300 dark:border-zinc-700 focus:outline-none focus:ring-2 focus:ring-primary transition-colors w-full"
+              className="mt-1 px-2 py-1 border rounded bg-surface text-black dark:text-white border-primary dark:border-primary focus:outline-none focus:ring-2 focus:ring-primary transition-colors w-full"
               value={form.notes}
               onChange={e => setForm(f => ({ ...f, notes: e.target.value }))}
               placeholder="e.g. in well, facing front"
             />
           </label>
           <button
-            className="w-full h-[40px] py-2 px-4 bg-transparent border border-primary text-primary rounded hover:bg-primary hover:text-surface hover:shadow-[0_0_5px_rgba(0,178,204,0.5)] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-lg flex items-center justify-center min-w-[60px]"
+            className="w-full h-[40px] py-2 px-4 bg-surface border border-primary text-primary rounded hover:bg-primary hover:text-surface hover:shadow-[0_0_5px_rgba(0,178,204,0.5)] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-lg flex items-center justify-center min-w-[60px]"
             onClick={handleAddToRoutine}
             title="Add to Routine"
             type="button"

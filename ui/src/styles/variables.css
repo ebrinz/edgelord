@@ -28,7 +28,7 @@
     --color-white: #ffffff;
     
     /* Brand Colors */
-    --color-brand-primary: #7d011a; /* Deep Hawaiian blue */
+    --color-brand-primary: #8c041f; /* Deep Hawaiian blue */
     --color-brand-primary-hover: #570515;
     --color-brand-accent: #db1038; /* Indigo accent */
     --color-brand-accent-hover: #a80022;
@@ -47,10 +47,10 @@
     --color-border-dark-strong: #23272e;
     
     /* Theme Colors - Light Mode */
-    --color-theme-light-brand-primary: #1a70c5; /* Lighter Hawaiian blue */
-    --color-theme-light-brand-primary-hover: #2884db;
-    --color-theme-light-brand-accent: #5c6bc0; /* Lighter indigo */
-    --color-theme-light-brand-accent-hover: #7986cb;
+    --color-theme-light-brand-primary: #8c041f; /* Lighter Hawaiian blue */
+    --color-theme-light-brand-primary-hover: #570515;
+    --color-theme-light-brand-accent: #db1038; /* Lighter indigo */
+    --color-theme-light-brand-accent-hover: #a80022;
     --color-theme-light-surface: rgba(244, 246, 249, 0.95); /* Light with slight transparency */
     --color-theme-light-surface-hover: rgba(234, 238, 243, 0.95);
     --color-theme-light-surface-muted: rgba(232, 237, 243, 0.30);

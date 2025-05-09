@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import exerciseCatalog from "@/mockData/exercise_catalog.json";
 
+interface Exercise {
+  exercise_id: number;
+  name: string;
+  muscle_group: string;
+  position: string;
+  typical_springs?: string;
+  typical_duration?: string;
+  description?: string;
+}
+
 const ExerciseReference: React.FC = () => {
   const [expanded, setExpanded] = useState<number | null>(null);
   const [nameFilter, setNameFilter] = useState("");
@@ -8,12 +18,12 @@ const ExerciseReference: React.FC = () => {
   const [positionFilter, setPositionFilter] = useState("");
 
   // Get unique muscle groups and positions
-  const muscleGroups = Array.from(new Set(exerciseCatalog.map((ex: any) => ex.muscle_group).filter(Boolean)));
-  const positions = Array.from(new Set(exerciseCatalog.map((ex: any) => ex.position).filter(Boolean)));
+  const muscleGroups = Array.from(new Set(exerciseCatalog.map((ex: Exercise) => ex.muscle_group).filter(Boolean)));
+  const positions = Array.from(new Set(exerciseCatalog.map((ex: Exercise) => ex.position).filter(Boolean)));
 
   // Filter and sort exercises
   const filteredExercises = [...exerciseCatalog]
-    .filter((ex: any) => {
+    .filter((ex: Exercise) => {
       const nameMatch = ex.name.toLowerCase().includes(nameFilter.toLowerCase());
       const muscleMatch = !muscleFilter || ex.muscle_group === muscleFilter;
       const positionMatch = !positionFilter || ex.position === positionFilter;
@@ -30,12 +40,12 @@ const ExerciseReference: React.FC = () => {
             placeholder="Filter by name..."
             value={nameFilter}
             onChange={e => setNameFilter(e.target.value)}
-            className="flex-2 min-w-[120px] px-3 py-2 text-base border border-gray-300 rounded bg-white dark:bg-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
+            className="flex-2 min-w-[120px] bg-surface px-3 py-2 text-base border rounded text-primary border-primary focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
           />
           <select
             value={muscleFilter}
             onChange={e => setMuscleFilter(e.target.value)}
-            className="flex-1 min-w-[120px] px-2 py-2 text-base border border-gray-300 rounded bg-white dark:bg-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
+            className="flex-1 min-w-[120px] bg-surface px-2 py-2 text-base border rounded text-primary border-primary focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
           >
             <option value="">All Muscle Groups</option>
             {muscleGroups.map((mg) => (
@@ -45,7 +55,7 @@ const ExerciseReference: React.FC = () => {
           <select
             value={positionFilter}
             onChange={e => setPositionFilter(e.target.value)}
-            className="flex-1 min-w-[120px] px-2 py-2 text-base border border-gray-300 rounded bg-white dark:bg-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
+            className="flex-1 min-w-[120px] bg-surface px-2 py-2 text-base border rounded text-primary border-primary focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
           >
             <option value="">All Positions</option>
             {positions.map((pos) => (
@@ -56,8 +66,8 @@ const ExerciseReference: React.FC = () => {
         {filteredExercises.length === 0 && (
           <div className="text-gray-500 italic mt-5">No exercises found.</div>
         )}
-        {filteredExercises.map((ex: any, idx: number) => (
-          <div key={ex.exercise_id} className="mb-4 border-b border-gray-200 dark:border-zinc-700 pb-2">
+        {filteredExercises.map((ex: Exercise, idx: number) => (
+          <div key={ex.exercise_id} className="mb-4 border-b border-primary pb-2">
             <div
               className="cursor-pointer font-bold text-lg flex items-center select-none"
               onClick={() => setExpanded(expanded === idx ? null : idx)}

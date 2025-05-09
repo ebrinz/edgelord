@@ -27,20 +27,20 @@ const ExerciseFilterForm: React.FC = () => {
 
   // Filtering logic
   const filteredByMuscle = selected.muscle_group
-    ? exerciseCatalog.filter((ex: any) => ex.muscle_group === selected.muscle_group)
+    ? exerciseCatalog.filter((ex: Exercise) => ex.muscle_group === selected.muscle_group)
     : exerciseCatalog;
   const filteredByPosition = selected.position
-    ? filteredByMuscle.filter((ex: any) => ex.position === selected.position)
+    ? filteredByMuscle.filter((ex: Exercise) => ex.position === selected.position)
     : filteredByMuscle;
   const filteredByName = selected.name
-    ? filteredByPosition.filter((ex: any) => ex.name === selected.name)
+    ? filteredByPosition.filter((ex: Exercise) => ex.name === selected.name)
     : filteredByPosition;
 
   useEffect(() => {
     setMuscleGroups(getUniqueValues(exerciseCatalog, "muscle_group"));
     setPositions(getUniqueValues(filteredByMuscle, "position"));
     setNames(getUniqueValues(filteredByPosition, "name"));
-  }, [selected.muscle_group, selected.position]);
+  }, [selected.muscle_group, selected.position, filteredByMuscle, filteredByPosition]);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -55,7 +55,6 @@ const ExerciseFilterForm: React.FC = () => {
       }
     });
   };
-
 
   return (
     <>
@@ -101,7 +100,7 @@ const ExerciseFilterForm: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredByName.map((ex: any) => (
+            {filteredByName.map((ex: Exercise) => (
               <tr key={ex.exercise_id}>
                 <td>{ex.name}</td>
                 <td>{ex.muscle_group}</td>
