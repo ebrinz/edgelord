@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/utils/supabase/createClient";
@@ -48,9 +49,11 @@ export default function HomePage() {
   return (
     <div className="relative min-h-screen w-full bg-bg text-text">
       {/* Background image replacing ThreeWavesBackground */}
-      <img
+      <Image
         src="/bst_vid.jpeg"
         alt="Background"
+        fill
+        priority
         className="absolute inset-0 w-full h-full object-cover z-0"
         style={{ pointerEvents: 'none' }}
       />

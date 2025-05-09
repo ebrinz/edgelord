@@ -6,7 +6,7 @@ import QuizHistoryPanel from "@/components/QuizHistoryPanel";
 import ExerciseReferencePanel from "@/components/ExerciseReferencePanel";
 
 const QuizPage: React.FC = () => {
-  const { theme } = useTheme();
+
 
   return (
     <>
