@@ -1,6 +1,9 @@
 "use client";
 import React from "react";
 import { useTheme } from "@/components/ThemeProvider";
+import RoutineBuilderPanel from "@/components/RoutineBuilderPanel";
+import QuizHistoryPanel from "@/components/QuizHistoryPanel";
+import ExerciseReferencePanel from "@/components/ExerciseReferencePanel";
 
 const QuizPage: React.FC = () => {
   const { theme } = useTheme();
@@ -10,31 +13,29 @@ const QuizPage: React.FC = () => {
   const color = isDark ? "#f3f3f3" : "#18181b";
 
   return (
-    <section
-      style={{
-        width: "100%",
-        margin: "2rem 0",
-        padding: "2.5rem 1.5rem",
-        borderRadius: 20,
-        border,
-        background: bg,
-        color,
-        minHeight: 320,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        boxSizing: "border-box",
-        boxShadow: isDark
-          ? "0 2px 16px rgba(0,0,0,0.28)"
-          : "0 2px 16px rgba(0,0,0,0.08)",
-        transition: "background 0.2s, color 0.2s, border 0.2s"
-      }}
-    >
-      <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 12 }}>Quiz Section (Coming Soon)</h1>
-      <p style={{ fontSize: 18, color: isDark ? "#a1a1aa" : "#666", maxWidth: 520, textAlign: "center" }}>
-        This is where your interactive quizzes will appear. We&apos;ll soon add logic, API endpoints, and database updates for a dynamic quiz experience. Stay tuned!
-      </p>
-    </section>
+    <>
+      <div
+        style={{
+          width: "100%",
+          margin: "2rem 0",
+          padding: 0,
+          display: "flex",
+          flexDirection: "column",
+          gap: 32,
+          alignItems: "center"
+        }}
+      >
+        <div style={{ width: '100%', margin: '0 20px' }}>
+          <RoutineBuilderPanel />
+        </div>
+        <div style={{ width: '100%', margin: '0 20px' }}>
+          <QuizHistoryPanel />
+        </div>
+        <div style={{ width: '100%', margin: '0 20px' }}>
+          <ExerciseReferencePanel />
+        </div>
+      </div>
+    </>
   );
 };
 
