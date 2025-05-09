@@ -22,7 +22,7 @@ interface RoutineExercise {
 }
 
 const RoutineBuilder: React.FC = () => {
-  const [exercises, setExercises] = useState<Exercise[]>([]);
+
   const [routine, setRoutine] = useState<RoutineExercise[]>([]);
   const [selectedExerciseId, setSelectedExerciseId] = useState<number | null>(null);
   const [form, setForm] = useState({
@@ -79,7 +79,7 @@ const RoutineBuilder: React.FC = () => {
               onChange={e => {
                 const val = e.target.value ? parseInt(e.target.value) : null;
                 setSelectedExerciseId(val);
-                const ex = exercises.find((ex: Exercise) => ex.exercise_id === val);
+                const ex = exerciseCatalog.find((ex: Exercise) => ex.exercise_id === val);
                 setForm(f => ({
                   ...f,
                   springs: ex?.typical_springs || '',
