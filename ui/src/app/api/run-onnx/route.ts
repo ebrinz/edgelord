@@ -23,9 +23,10 @@ export async function POST(req: NextRequest) {
     console.log('ONNX outputNames:', session.outputNames);
     console.log('Input tensor dims:', inputTensor.dims, 'type:', inputTensor.type);
 
-    // Log input metadata
-    const inputMetadata = await session.inputMetadata;
-    console.log('Full inputMetadata:', inputMetadata);
+    // Log input names (inputMetadata property does not exist on InferenceSession in onnxruntime-node)
+    // If you need input metadata, you can use session.inputNames and session.inputMetadata if available in your version.
+    // Otherwise, remove this log.
+    // console.log('Full inputMetadata:', inputMetadata);
     // Use the dynamic input name from the model
     const inputName = session.inputNames[0];
     const feeds: Record<string, ort.Tensor> = {};
