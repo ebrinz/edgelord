@@ -1,8 +1,10 @@
 import React from "react";
 import RoutineBuilder from "./RoutineBuilder";
 
+import type { Exercise } from "./ExerciseReference";
+
 interface RoutineBuilderPanelProps {
-  exercises: any[];
+  exercises: Exercise[];
   loading: boolean;
   error: string | null;
 }
@@ -11,7 +13,7 @@ const RoutineBuilderPanel: React.FC<RoutineBuilderPanelProps> = ({ exercises, lo
   return (
     <div className="panel">
       <h2 className="text-primary">Routine Builder & Tester</h2>
-      <RoutineBuilder exercises={exercises} loading={loading} error={error} />
+      <RoutineBuilder exercises={exercises as any} loading={loading} error={error} />
     </div>
   );
 };

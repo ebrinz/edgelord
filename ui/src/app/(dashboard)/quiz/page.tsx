@@ -4,9 +4,10 @@ import React from "react";
 import RoutineBuilderPanel from "@/components/RoutineBuilderPanel";
 import QuizHistoryPanel from "@/components/QuizHistoryPanel";
 import ExerciseReferencePanel from "@/components/ExerciseReferencePanel";
+import type { Exercise } from "../../../components/ExerciseReference";
 
 const QuizPage: React.FC = () => {
-  const [exercises, setExercises] = React.useState<any[]>([]);
+  const [exercises, setExercises] = React.useState<Exercise[]>([]);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
 
@@ -19,8 +20,12 @@ const QuizPage: React.FC = () => {
         if (!res.ok) throw new Error('Failed to fetch exercises');
         const json = await res.json();
         setExercises(json.exercises || []);
-      } catch (err: any) {
-        setError(err.message || 'Failed to fetch exercises');
+      } catch (err: unknown) {
+        if (err && typeof err === 'object' && 'message' in err && typeof (err as any).message === 'string') {
+  setError((err as any).message);
+} else {
+  setError('Failed to fetch exercises');
+}
       } finally {
         setLoading(false);
       }

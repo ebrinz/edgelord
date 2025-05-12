@@ -41,8 +41,18 @@ export async function POST(req: NextRequest) {
     const result = Array.from(resultTensor.data as Iterable<number>);
 
     return NextResponse.json({ result });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error('ONNX API error:', err);
-    return NextResponse.json({ error: err.message || 'Unexpected error', stack: err.stack }, { status: 500 });
+    let message = 'Unexpected error';
+    let stack = undefined;
+    if (err && typeof err === 'object') {
+      if ('message' in err && typeof (err as any).message === 'string') {
+        message = (err as any).message;
+      }
+      if ('stack' in err && typeof (err as any).stack === 'string') {
+        stack = (err as any).stack;
+      }
+    }
+    return NextResponse.json({ error: message, stack }, { status: 500 });
   }
 }

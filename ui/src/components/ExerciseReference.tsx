@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-interface Exercise {
+export type Exercise = {
   id?: number; // Some sources may not have this
   exercise_id?: number; // Some sources may not have this
   name: string;

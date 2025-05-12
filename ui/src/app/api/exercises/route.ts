@@ -7,7 +7,11 @@ export async function GET() {
     const { data, error } = await supabase.from('exercises').select('*');
     if (error) throw error;
     return NextResponse.json({ exercises: data || [] });
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message || 'Failed to fetch exercises' }, { status: 500 });
+  } catch (err: unknown) {
+    let message = 'Failed to fetch exercises';
+if (err && typeof err === 'object' && 'message' in err && typeof (err as any).message === 'string') {
+  message = (err as any).message;
+}
+return NextResponse.json({ error: message }, { status: 500 });
   }
 }
