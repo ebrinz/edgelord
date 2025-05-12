@@ -13,7 +13,7 @@ const ExerciseReferencePanel: React.FC<ExerciseReferencePanelProps> = ({ exercis
   return (
     <div className="panel">
       <h2 >Exercise Reference</h2>
-      <ExerciseReference exercises={exercises as any} loading={loading} error={error} />
+      <ExerciseReference exercises={exercises} loading={loading} error={error} />
     </div>
   );
 };

@@ -46,12 +46,20 @@ export async function POST(req: NextRequest) {
     let message = 'Unexpected error';
     let stack = undefined;
     if (err && typeof err === 'object') {
-      if ('message' in err && typeof (err as any).message === 'string') {
-        message = (err as any).message;
+      if (isErrorWithMessageAndStack(err)) {
+        message = err.message;
+        stack = err.stack;
       }
-      if ('stack' in err && typeof (err as any).stack === 'string') {
-        stack = (err as any).stack;
-      }
+
+function isErrorWithMessageAndStack(error: unknown): error is { message: string; stack?: string } {
+  return (
+    typeof error === 'object' &&
+    error !== null &&
+    'message' in error &&
+    typeof (error as { message?: unknown }).message === 'string' &&
+    ('stack' in error ? typeof (error as { stack?: unknown }).stack === 'string' : true)
+  );
+}
     }
     return NextResponse.json({ error: message, stack }, { status: 500 });
   }

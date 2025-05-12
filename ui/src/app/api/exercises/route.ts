@@ -9,8 +9,17 @@ export async function GET() {
     return NextResponse.json({ exercises: data || [] });
   } catch (err: unknown) {
     let message = 'Failed to fetch exercises';
-if (err && typeof err === 'object' && 'message' in err && typeof (err as any).message === 'string') {
-  message = (err as any).message;
+if (isErrorWithMessage(err)) {
+  message = err.message;
+}
+
+function isErrorWithMessage(error: unknown): error is { message: string } {
+  return (
+    typeof error === 'object' &&
+    error !== null &&
+    'message' in error &&
+    typeof (error as { message?: unknown }).message === 'string'
+  );
 }
 return NextResponse.json({ error: message }, { status: 500 });
   }

@@ -21,8 +21,8 @@ const QuizPage: React.FC = () => {
         const json = await res.json();
         setExercises(json.exercises || []);
       } catch (err: unknown) {
-        if (err && typeof err === 'object' && 'message' in err && typeof (err as any).message === 'string') {
-  setError((err as any).message);
+        if (typeof err === 'object' && err !== null && 'message' in err && typeof (err as { message?: unknown }).message === 'string') {
+  setError((err as { message: string }).message);
 } else {
   setError('Failed to fetch exercises');
 }

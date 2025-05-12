@@ -13,7 +13,7 @@ const RoutineBuilderPanel: React.FC<RoutineBuilderPanelProps> = ({ exercises, lo
   return (
     <div className="panel">
       <h2 className="text-primary">Routine Builder & Tester</h2>
-      <RoutineBuilder exercises={exercises as any} loading={loading} error={error} />
+      <RoutineBuilder exercises={exercises} loading={loading} error={error} />
     </div>
   );
 };

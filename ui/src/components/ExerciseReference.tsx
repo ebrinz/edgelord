@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
 
+// 'id' and 'exercise_id' are now required for compatibility with RoutineBuilder and other consumers.
 export type Exercise = {
-  id?: number; // Some sources may not have this
-  exercise_id?: number; // Some sources may not have this
+  id: number;
+  exercise_id: number;
   name: string;
   position?: string;
   muscle_group?: string;
